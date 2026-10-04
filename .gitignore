@@ -1,0 +1,10 @@
+site/
+.obsidian/workspace*.json
+.DS_Store
+Thumbs.db
+~$*.docx
+~$*.pptx
+~$*.xlsx
+__pycache__/
+*.pyc
+**/.obsidian/workspace*.json

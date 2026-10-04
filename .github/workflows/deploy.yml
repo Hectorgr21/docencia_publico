@@ -1,0 +1,26 @@
+name: Publicar sitio
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive   # trae conocimiento_publico en docs/conocimiento
+          fetch-depth: 0
+      - name: Usar la última versión de conocimiento_publico
+        run: git submodule update --remote --recursive
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - run: mkdocs build
+      - name: Publicar sin historial (lo que ocultas no queda en versiones anteriores)
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          ghp-import --no-jekyll --push --force --no-history --message "Publicación" site

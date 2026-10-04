@@ -1,0 +1,162 @@
+site_name: Docencia · Héctor Gómez R.
+site_description: Material para alumnos · Periodo 2026-3 (Sep–Dic 2026)
+site_url: https://Hectorgr21.github.io/docencia_publico/
+repo_url: https://github.com/Hectorgr21/docencia_publico
+copyright: Héctor Gómez R. · UTN División de Telemática
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      primary: deep orange
+      accent: light blue
+      toggle: { icon: material/weather-night, name: Modo oscuro }
+    - scheme: slate
+      primary: deep orange
+      accent: light blue
+      toggle: { icon: material/weather-sunny, name: Modo claro }
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+
+exclude_docs: |
+  conocimiento/soluciones/_plantilla-solucion.md
+  conocimiento/README.md
+not_in_nav: |
+  conocimiento/soluciones/*.md
+  conocimiento/conceptos/*.md
+  */*-s01.md
+
+hooks:
+  - hooks/publico.py     # quita del sitio lo que no se publicó
+  - hooks/incrustar.py   # ![[nota]] de Obsidian también incrusta en el sitio
+
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search:
+      lang: es
+  - roamlinks          # convierte [[enlaces estilo Obsidian]] en links reales
+  - glightbox          # clic en imagen = zoom
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed: { alternate_style: true }
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc: { permalink: true }
+
+nav:
+  - Inicio: index.md
+  - SO · G060201:
+      - so/index.md
+      - 'P1 · Selección de SO y licencias': so/so-p01.md
+      - 'P2 · Requerimientos y creación de la VM': so/so-p02.md
+      - 'P3 · Particiones, sistemas de archivos y RAID': so/so-p03.md
+      - 'P4 · Instalación del SO y virtualización': so/so-p04.md
+      - 'P5 · Línea de comandos y gestión de archivos': so/so-p05.md
+      - 'P6 · Repositorios, empaquetado y compresión': so/so-p06.md
+      - 'P7 · Configuración de la tarjeta de red': so/so-p07.md
+      - 'P8 · Usuarios, grupos, permisos y paquetes': so/so-p08.md
+      - 'P9 · Respaldos, políticas y estándares': so/so-p09.md
+      - 'P10 · Bitácoras y prueba de la política': so/so-p10.md
+      - 'P11 · WSL, DNS, DHCP y servicios web': so/so-p11.md
+      - 'P12 · Correo, FTP/TFTP, SSH y monitoreo': so/so-p12.md
+      - 'P13 · Migración y scripts de automatización': so/so-p13.md
+  - PI I · G060301:
+      - pi1/index.md
+      - 'S1 · P1 · Análisis del entorno e identificación del problema': pi1/pi1-s01.md
+      - 'S2 · P2 + P3 · Conceptualización y visión del proyecto y Hoja de ruta ágil y objetivos del proyecto': pi1/pi1-s02.md
+      - 'S3 · P4 · Plan del proyecto': pi1/pi1-s03.md
+      - 'S4 · P5 · Diseño del anteproyecto/prototipo': pi1/pi1-s04.md
+      - 'S5 · P5 · Diseño del anteproyecto/prototipo (2.ª semana)': pi1/pi1-s05.md
+      - 'S6 · P5 · Diseño del anteproyecto/prototipo (3.ª semana)': pi1/pi1-s06.md
+      - 'S7 · P6 · Desarrollo del prototipo — iteración 1': pi1/pi1-s07.md
+      - 'S8 · P7 · Desarrollo del prototipo — iteración 2': pi1/pi1-s08.md
+      - 'S9 · P7 · Desarrollo del prototipo — iteración 2 (2.ª semana)': pi1/pi1-s09.md
+      - 'S10 · P8 + P9 · Desarrollo del prototipo — iteración 3 e integración y Pruebas del proyecto e indicadores de desempeño': pi1/pi1-s10.md
+      - 'S11 · P10 · Adaptación y mejora continua del proyecto': pi1/pi1-s11.md
+      - 'S12 · P11 · Validación, cierre y divulgación del proyecto': pi1/pi1-s12.md
+      - 'S13 · P11 · Validación, cierre y divulgación del proyecto (2.ª semana)': pi1/pi1-s13.md
+  - MAD · G060401:
+      - mad/index.md
+      - 'S1 · P1 · Concepto del proyecto y diseño del personaje': mad/mad-s01.md
+      - 'S2 · P2 + P3 · Guion, storyboard y animación 2D en Grease Pencil': mad/mad-s02.md
+      - 'S3 · P4 · Integración y exportación de la animática 2D': mad/mad-s03.md
+      - 'S4 · P5 · Espacio 3D y bloqueo del puesto': mad/mad-s04.md
+      - 'S5 · P6 · Modelado poligonal y NURBS del puesto': mad/mad-s05.md
+      - 'S6 · P7 · Texturas y materiales del escenario': mad/mad-s06.md
+      - 'S7 · P8 · Personaje low poly, iluminación y cámaras': mad/mad-s07.md
+      - 'S8 · P8 · Personaje low poly, iluminación y cámaras (2.ª semana)': mad/mad-s08.md
+      - 'S9 · P9 · Impresión del prototipo y portafolio EP-2': mad/mad-s09.md
+      - 'S10 · P10 · Fotogramas clave y animación de objetos': mad/mad-s10.md
+      - 'S11 · P11 · Rigging del personaje: esqueleto, skinning y pesos': mad/mad-s11.md
+      - 'S12 · P12 · Rig facial y animación del personaje': mad/mad-s12.md
+      - 'S13 · P13 · Documentación, render y portafolio EP-3': mad/mad-s13.md
+      - C49 · Keyframes y timeline: mad/c49-keyframes-timeline.md
+  - AAEV · G060701:
+      - aaev/index.md
+      - 'S1 · Plan de producción y biblia del proyecto': aaev/aaev-s01.md
+      - 'S2 · Storyboard, layout y animatic': aaev/aaev-s02.md
+      - 'S3 · Entorno de producción y laboratorio de técnicas VFX': aaev/aaev-s03.md
+      - 'S4 · Modelado poligonal del escenario': aaev/aaev-s04.md
+      - 'S5 · Blockout, escultura digital y retopología': aaev/aaev-s05.md
+      - 'S6 · Mapeado UV y texturizado PBR': aaev/aaev-s06.md
+      - 'S7 · Shading, materiales e iluminación': aaev/aaev-s07.md
+      - 'S8 · Rigging bípedo y skinning': aaev/aaev-s08.md
+      - 'S9 · Animación de personaje': aaev/aaev-s09.md
+      - 'S10 · Simulación de partículas y efectos': aaev/aaev-s10.md
+      - 'S11 · Tracking 3D, matte painting e integración': aaev/aaev-s11.md
+      - 'S12 · Renderizado, pases y gestión de salida': aaev/aaev-s12.md
+      - 'S13 · Composición final, etalonaje, sonido y publicación': aaev/aaev-s13.md
+      - Banco de ejercicios 2026-3: aaev/banco-ejercicios.md
+      - T1 · Tracking: aaev/t1-tracking.md
+      - T2 · Rigging: aaev/t2-rigging.md
+      - T3 · Simulaciones: aaev/t3-simulaciones.md
+      - T4 · Nodos: aaev/t4-nodos.md
+      - T5 · Etalonaje: aaev/t5-etalonaje.md
+      - Proyecto · Video mix con personaje 3D: aaev/proyecto-video-mix.md
+  - Infra Web · G070701:
+      - oiaw/index.md
+  - SDA · ITIC-801:
+      - sda/index.md
+      - 'P1 · Encuadre, caso de estudio y buenas prácticas de codificación segura': sda/sda-p01.md
+      - 'P2 · Estándares de codificación del lenguaje y guía de estilo seguro': sda/sda-p02.md
+      - 'P3 · Modelado de amenazas y superficie de ataque': sda/sda-p03.md
+      - 'P4 · Técnicas y mecanismos de protección de vulnerabilidades': sda/sda-p04.md
+      - 'P5 · Integración del plan de desarrollo seguro (S-SDLC)': sda/sda-p05.md
+      - 'P6 · Configuración segura del framework: cabeceras y gestión de secretos': sda/sda-p06.md
+      - 'P7 · Autenticación y gestión de sesiones': sda/sda-p07.md
+      - 'P8 · Control de acceso por rol y validación de entradas': sda/sda-p08.md
+      - 'P9 · Protección de datos personales: cifrado y carga de archivos': sda/sda-p09.md
+      - 'P10 · Registros estructurados de eventos de seguridad': sda/sda-p10.md
+      - 'P11 · Análisis de registros y detección de eventos anómalos': sda/sda-p11.md
+      - 'P12 · Pruebas estáticas (SAST) y remediación de hallazgos': sda/sda-p12.md
+      - 'P13 · Análisis de dependencias y pruebas dinámicas (DAST) de entrenamiento': sda/sda-p13.md
+      - 'P14 · Pruebas dinámicas dirigidas al caso de estudio; IAST y RASP': sda/sda-p14.md
+      - 'P15 · Reporte de pruebas de seguridad y recomendaciones': sda/sda-p15.md
+  - Videojuegos · ITIC-1001V:
+      - vj/index.md
+  - Común:
+      - _comun/index.md
+      - Rúbrica UT: _comun/rubrica-ut.md
+      - Nomenclatura de archivos: _comun/nomenclatura.md
+      - Videos: videos.md
+      - Conceptos: conocimiento/conceptos/index.md
+      - Banco de soluciones: conocimiento/soluciones/index.md

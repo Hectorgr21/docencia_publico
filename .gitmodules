@@ -1,0 +1,3 @@
+[submodule "docs/conocimiento"]
+	path = docs/conocimiento
+	url = https://github.com/Hectorgr21/conocimiento_publico.git
